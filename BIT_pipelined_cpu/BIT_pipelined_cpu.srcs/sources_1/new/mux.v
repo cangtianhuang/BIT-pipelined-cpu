@@ -1,10 +1,24 @@
 `timescale 1ns / 1ps
 `include "definitions.vh"
+//////////////////////////////////////////////////////////////////////////////////
+// Company: Beijing Institute Of Technology
+// Engineer: Hao Yang, Xinyu Wang, Haoyang Li
+//
+// Create Date: 2023/08/23
+// Design Name: BIT-pipelined-cpu
+// Module Name: mux...alu...
+// Project Name: BIT_pipelined_cpu
+// Target Devices: xc7a35tcsg324-1
+// Tool Versions: Vivado 2019.2
+// Description:
+//
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+//
+//////////////////////////////////////////////////////////////////////////////////
 
-/*
- * Module: ZanPU Multiplexers
- */
-
+// Selects the number of the register that will be written to
 module reg_dst_mux (
     input wire [1:0] RegDstE,
     input wire [4:0] RtE,
@@ -13,13 +27,13 @@ module reg_dst_mux (
     output wire [4:0] RegWriteAddrE
 );
 
-  assign RegWriteAddrE =
-       (RegDstE == `REG_DST_RT    ) ? RtE :
-       (RegDstE == `REG_DST_RD    ) ? RdE :
-       (RegDstE == `REG_DST_REG_31) ? `REG_31_ADDR :
-       RtE;
+  assign RegWriteAddrE = (RegDstE == `REG_DST_RT) ? RtE :
+    (RegDstE == `REG_DST_RD) ? RdE :
+    (RegDstE == `REG_DST_REG_31) ? `REG_31_ADDR : RtE;
+
 endmodule
 
+// Select whether the second operand of alu is register data or an immediate number.
 module alu_src_mux (
     input wire        AluSrcE,
     input wire [31:0] ForwardOut,
@@ -29,8 +43,10 @@ module alu_src_mux (
 );
 
   assign AluInput2 = (AluSrcE == `ALU_SRC_REG) ? ForwardOut : ImmE;
+
 endmodule
 
+// Selects whether the data that will be written to the register is the result from alu or PC4
 module result_mux (
     input wire LoadNPCM,
     input wire [31:0] AluOutM,
@@ -39,9 +55,11 @@ module result_mux (
     output wire [31:0] ResultM
 );
 
-  assign ResultM = (LoadNPCM == `LoadNPC_EN) ? (PCM + 32'h4) : AluOutM;
+  assign ResultM = (LoadNPCM == `LOADNPC_EN) ? (PCM + 32'h4) : AluOutM;
+
 endmodule
 
+// Select whether the data that will be written to the register is the result of the previous stage or memory
 module mem_to_reg_mux (
     input wire        MemToRegW,
     input wire [31:0] ResultW,
@@ -50,9 +68,11 @@ module mem_to_reg_mux (
     output wire [31:0] RegWriteDataW
 );
 
-  assign RegWriteDataW = (MemToRegW == `MemToReg_EN) ? MemDataW : ResultW;
+  assign RegWriteDataW = (MemToRegW == `MEMTOREG_EN) ? MemDataW : ResultW;
+
 endmodule
 
+// Select register data from EX, MEM, or WB based on data forwarding signals
 module forward_mux (
     input wire [ 1:0] Forward,
     input wire [31:0] ExData,
@@ -62,9 +82,12 @@ module forward_mux (
     output wire [31:0] ForwardOut
 );
 
-  assign ForwardOut = (Forward == 2'b10) ? MemData : (Forward == 2'b01) ? WbData : ExData;
+  assign ForwardOut = (Forward == `FORWARD_FROM_MEM) ? MemData :
+    (Forward == `FORWARD_FROM_WB) ? WbData : ExData;
+
 endmodule
 
+// Calculate the direct jump address
 module jump_alu (
     input wire [31:0] PCD,
     input wire [25:0] Addr,
@@ -73,8 +96,10 @@ module jump_alu (
 );
 
   assign JumpNPC = {PCD[31:28], Addr, 2'b00};
+
 endmodule
 
+// Calculate the branch jump address
 module branch_alu (
     input wire [31:0] PC,
     input wire [31:0] Imm,

@@ -1,25 +1,22 @@
 `timescale 1ns / 1ps
 `include "definitions.vh"
 //////////////////////////////////////////////////////////////////////////////////
-// Company:
-// Engineer:
+// Company: Beijing Institute Of Technology
+// Engineer: Hao Yang, Xinyu Wang, Haoyang Li
 //
-// Create Date: 2023/08/27 15:16:51
-// Design Name:
+// Create Date: 2023/08/23
+// Design Name: BIT-pipelined-cpu
 // Module Name: hazard_unit
-// Project Name:
-// Target Devices:
-// Tool Versions:
+// Project Name: BIT_pipelined_cpu
+// Target Devices: xc7a35tcsg324-1
+// Tool Versions: Vivado 2019.2
 // Description:
-//
-// Dependencies:
 //
 // Revision:
 // Revision 0.01 - File Created
 // Additional Comments:
 //
 //////////////////////////////////////////////////////////////////////////////////
-
 
 module hazard_unit (
     input wire [4:0] RsD,
@@ -39,11 +36,19 @@ module hazard_unit (
     output wire flushEX
 );
 
+  // load-use data adventure: Memory will write to a register that is the same as the source register (Rs or Rt)
   wire load_use_stall = (MemToRegE && (RegWriteAddrE == RsD || (RegWriteAddrE == RtD && AluSrcD == `ALU_SRC_REG)));
 
   assign stallIF = load_use_stall;
   assign stallID = load_use_stall;
-  assign flushEX = (JrE || ((|BrTypeE) && ~BrE));
-  assign flushID = (JumpD || (|BrTypeD) || flushEX);
+
+  // jump, predict branch: flush one cycle (can be optimized: get Addr in IF stage)
+  // jr, wrong predict branch: flush two cycles
+  wire flush_one_cycle = (JumpD || (|BrTypeD));
+  wire flush_two_cycle = (JrE || ((|BrTypeE) && ~BrE));
+
+  // load_use_stall need to flush EX
+  assign flushEX = (load_use_stall || flush_two_cycle);
+  assign flushID = (flush_one_cycle || flush_two_cycle);
 
 endmodule

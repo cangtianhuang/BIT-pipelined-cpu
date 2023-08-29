@@ -1,12 +1,22 @@
 `timescale 1ns / 1ps
 `include "definitions.vh"
-
-/*
- * Module: ZanPU Next Program Counter
- *
- * Input:  .clk .pc .imm16 .imm26 .en_npc_op
- * Output: .npc
- */
+//////////////////////////////////////////////////////////////////////////////////
+// Company: Beijing Institute Of Technology
+// Engineer: Hao Yang, Xinyu Wang, Haoyang Li
+//
+// Create Date: 2023/08/23
+// Design Name: BIT-pipelined-cpu
+// Module Name: npc
+// Project Name: BIT_pipelined_cpu
+// Target Devices: xc7a35tcsg324-1
+// Tool Versions: Vivado 2019.2
+// Description:
+//
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+//
+//////////////////////////////////////////////////////////////////////////////////
 
 module npc (
     input wire [31:0] PCF,
@@ -21,8 +31,8 @@ module npc (
     input wire [31:0] BrNPCD,
     input wire [31:0] PCE,
 
-    output wire [31:0] NPC  // next program counter
+    output wire [31:0] NPC
 );
-
-  assign NPC = (JumpD) ? JumpNPC : (|BrTypeD) ? BrNPCD : ( (|BrTypeE) && ~BrE ) ? PCE + 4 : (JrE) ? JrNPC : PCF + 4;
+// jump directly, branch prediction (taken), wrong branch prediction (back to PC4), jump Rs, else PC4
+  assign NPC = (JumpD) ? JumpNPC : (|BrTypeD) ? BrNPCD : ((|BrTypeE) && ~BrE) ? PCE + 4 : (JrE) ? JrNPC : PCF + 4;
 endmodule

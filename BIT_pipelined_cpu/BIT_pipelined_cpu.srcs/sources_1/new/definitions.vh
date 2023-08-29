@@ -1,22 +1,23 @@
 `timescale 1ns / 1ps
-
-/*
- * Module: ZanPU Definition File
- */
-
-/* --- Micellanenous --- */
-
-// Instruction Memory Length
-`define IM_LENGTH       1023
-`define DM_LENGTH       1023
+//////////////////////////////////////////////////////////////////////////////////
+// Company: Beijing Institute Of Technology
+// Engineer: Hao Yang, Xinyu Wang, Haoyang Li
+//
+// Create Date: 2023/08/23
+// Design Name: BIT-pipelined-cpu
+// Module Name: hazard_unit
+// Project Name: BIT_pipelined_cpu
+// Target Devices: xc7a35tcsg324-1
+// Tool Versions: Vivado 2019.2
+// Description:
+//
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+//
+//////////////////////////////////////////////////////////////////////////////////
 
 `define REG_31_ADDR     5'b11111
-
-// Init reg/wire with zeros
-`define INIT_4          4'b0000
-`define INIT_5          5'b00000
-`define INIT_16         16'h0000
-`define INIT_32         32'h00000000
 
 /* --- Instruction Decode --- */
 
@@ -63,12 +64,7 @@
 
 /* --- Control Signals --- */
 
-// Register Write EN
-`define REG_WRITE_EN    1'b1       // Enable register write
-`define REG_WRITE_DIS   1'b0       // Disable register write
-
 // ExtOp Control Signals
-`define EXT_OP_LENGTH   2          // Length of Signal ExtOp
 `define EXT_OP_DEFAULT  2'b00      // ExtOp default value
 `define EXT_OP_SFT16    2'b01      // LUI: Shift Left 16
 `define EXT_OP_SIGNED   2'b10      // ADDIU: `imm16` signed extended to 32 bit
@@ -79,7 +75,6 @@
 `define ALU_SRC_IMM     1'b1       // ALU Source: immediate
 
 // ALU Control Signals
-`define ALU_OP_LENGTH   4          // Length of signal ALUOp
 `define ALU_OP_DEFAULT  4'b0000    // ALUOp default value
 `define ALU_OP_ADD      4'b0001    // ALU add
 `define ALU_OP_SUB      4'b0010    // ALU sub
@@ -95,55 +90,27 @@
 `define ALU_OP_SRLV     4'b1100    // ALU srlv, with respect to rs
 `define ALU_OP_SRAV     4'b1101    // ALU srav, with respect to rs
 
-`define OVERFLOW_TRUE   1'b1
-`define OVERFLOW_FALSE  1'b0
-
-// Memory Write EN
-`define MEM_WRITE_EN    1'b1       // Enable memory write
-`define MEM_WRITE_DIS   1'b0       // Disable memory write
-
 // MemToReg Control Signals
-`define MemToReg_EN     1'b1      // Register write source: Data Memory
-`define MemToReg_DIS    1'b0      // Register write source: Result(ALU or PC+4)
+`define MEMTOREG_EN     1'b1      // Register write source: Data Memory
+`define MEMTOREG_DIS    1'b0      // Register write source: Result(ALU or PC+4)
 
 // LoadNPC Control Signals
-`define LoadNPC_EN      1'b1      // Register write source(without MEM): PC+4
-`define LoadNPC_DIS     1'b0      // Register write source(without MEM): ALU
+`define LOADNPC_EN      1'b1      // Register write source(without MEM): PC+4
+`define LOADNPC_DIS     1'b0      // Register write source(without MEM): ALU
 
 // RegDst Control Signals
-`define REG_DST_LENGTH  2
 `define REG_DST_DEFAULT 2'b00      // Register write destination: default
-`define REG_DST_RT      2'b01      // Register write destination: rt
-`define REG_DST_RD      2'b10      // Register write destination: rd
-`define REG_DST_REG_31  2'b11      // Register write destination: 31 bit gpr
-
-// NPCOp Control Signals
-`define NPC_OP_LENGTH   3          // Length of NPCOp
-`define NPC_OP_DEFAULT  3'b000     // NPCOp default value
-`define NPC_OP_NEXT     3'b001     // Next instruction: {PC + 4}
-`define NPC_OP_JUMP     3'b010     // Next instruction: {PC[31:28], instr_index, 2'b00}
-`define NPC_OP_OFFSET   3'b011     // Next instruction: {PC + 4 + offset}
-`define NPC_OP_RS       3'b100     // Next instruction: {rs}
-
-// Branching signals
-`define BRANCH_TRUE     1'b1       // Branch to true
-`define BRANCH_FALSE    1'b0       // Branch to false
+`define REG_DST_RT      2'b01      // Register write destination: Rt
+`define REG_DST_RD      2'b10      // Register write destination: Rd
+`define REG_DST_REG_31  2'b11      // Register write destination: $31
 
 /* --- Hazard Control --- */
 
 // Forward Control Signals
-`define FORWARD_ONE_CYCLE 2'b10
-`define FORWARD_TWO_CYCLE 2'b01
+`define FORWARD_DEFAULT  2'b00     // No forward
+`define FORWARD_FROM_MEM 2'b10     // forwarding from MEM (one cycle)
+`define FORWARD_FROM_WB  2'b01     // forwarding from WB (two cycles)
 
-// Stall IN Signals
-`define EXE_REGW          2'b01
-`define MEM_REGW          2'b10
-`define NON_REGW          2'b00
-
-// Stall Control Signals
-`define EXE_STALL         4'b0111
-`define MEM_STALL         4'b1111
-`define NON_STALL         4'b0000
-
-// LW init
-`define EN_LW_DEFAULT     1'b0
+`define BRTYPE_DEFAULT   2'b00     // No branch
+`define BRTYPE_BEQ       2'b01     // branch equal
+`define BRTYPE_BNE       2'b10     // branch not equal

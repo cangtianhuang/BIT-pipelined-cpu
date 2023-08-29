@@ -1,12 +1,22 @@
 `timescale 1ns / 1ps
 `include "definitions.vh"
-
-/*
- * Module: ZanPU ID/EX Register
- *
- * Input:
- * Output:
- */
+//////////////////////////////////////////////////////////////////////////////////
+// Company: Beijing Institute Of Technology
+// Engineer: Hao Yang, Xinyu Wang, Haoyang Li
+//
+// Create Date: 2023/08/23
+// Design Name: BIT-pipelined-cpu
+// Module Name: reg_id_ex
+// Project Name: BIT_pipelined_cpu
+// Target Devices: xc7a35tcsg324-1
+// Tool Versions: Vivado 2019.2
+// Description:
+//
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+//
+//////////////////////////////////////////////////////////////////////////////////
 
 module reg_id_ex (
     input wire        clk,
@@ -54,24 +64,24 @@ module reg_id_ex (
   always @(posedge clk) begin
 
     if (rst || flushEX) begin
-      PCE       <= `INIT_32;
-      RegOut1E  <= `INIT_32;
-      RegOut2E  <= `INIT_32;
-      RsE       <= `INIT_5;
-      RtE       <= `INIT_5;
-      RdE       <= `INIT_5;
-      ShamtE    <= `INIT_5;
-      ImmE      <= `INIT_16;
+      PCE       <= 32'h0;
+      RegOut1E  <= 32'h0;
+      RegOut2E  <= 32'h0;
+      RsE       <= 5'b0;
+      RtE       <= 5'b0;
+      RdE       <= 5'b0;
+      ShamtE    <= 5'b0;
+      ImmE      <= 16'h0;
 
-      RegWriteE <= `REG_WRITE_DIS;
-      AluSrcE   <= `ALU_SRC_REG;
-      AluOpE    <= `ALU_OP_DEFAULT;
-      MemWriteE <= `MEM_WRITE_DIS;
-      MemToRegE <= `MemToReg_DIS;
-      RegDstE   <= `REG_DST_DEFAULT;
-      BrTypeE   <= 2'b00;
+      RegWriteE <= 1'b0;
+      AluSrcE   <= 1'b0;
+      AluOpE    <= 4'h0;
+      MemWriteE <= 1'b0;
+      MemToRegE <= 1'b0;
+      RegDstE   <= 2'b0;
+      BrTypeE   <= 2'b0;
       JrE       <= 1'b0;
-      LoadNPCE  <= `LoadNPC_DIS;
+      LoadNPCE  <= 1'b0;
     end else begin
       PCE       <= PCD;
       RegOut1E  <= RegOut1D;

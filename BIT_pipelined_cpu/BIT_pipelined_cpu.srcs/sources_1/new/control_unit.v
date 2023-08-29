@@ -1,36 +1,48 @@
 `timescale 1ns / 1ps
 `include "definitions.vh"
-
-/*
- * Module: ZanPU Control Unit
- */
+//////////////////////////////////////////////////////////////////////////////////
+// Company: Beijing Institute Of Technology
+// Engineer: Hao Yang, Xinyu Wang, Haoyang Li
+//
+// Create Date: 2023/08/23
+// Design Name: BIT-pipelined-cpu
+// Module Name: control_unit
+// Project Name: BIT_pipelined_cpu
+// Target Devices: xc7a35tcsg324-1
+// Tool Versions: Vivado 2019.2
+// Description:
+//
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+//
+//////////////////////////////////////////////////////////////////////////////////
 
 module control_unit (
     input wire       rst,
-    input wire [5:0] OpD,     // Instruction Op
-    input wire [4:0] ShamtD,  // Shift operation operand
+    input wire [5:0] OpD,     // Instruction Operator
+    input wire [4:0] ShamtD,  // Shift Smount
     input wire [5:0] FunctD,  // R-Type instruction function
 
-    output wire       RegWriteD,
-    output wire [1:0] ImmTypeD,
-    output wire       AluSrcD,
-    output wire [3:0] AluOpD,
-    output wire       MemWriteD,
-    output wire       MemToRegD,
-    output wire [1:0] RegDstD,
-    output wire [1:0] BrTypeD,
-    output wire       JumpD,
-    output wire       JrD,
-    output wire       LoadNPCD
+    output wire       RegWriteD,  // Signal for whether to write to the register
+    output wire [1:0] ImmTypeD,   // Immediate number type: Shift 16, Signed extend, Unsigned extend
+    output wire       AluSrcD,    // Source of the second operand of Alu (AluInput2): Imm, Reg
+    output wire [3:0] AluOpD,     // Alu Operator
+    output wire       MemWriteD,  // Signal for whether to write to memory
+    output wire       MemToRegD,  // Signal for whether to write to a register from memory
+    output wire [1:0] RegDstD,    // Selection of destination register: Rd, Rt, $31
+    output wire [1:0] BrTypeD,    // Types of branch: beq, bne, no branch
+    output wire       JumpD,      // Signal of whether to jump directly
+    output wire       JrD,        // Signal for register jump or not
+    output wire       LoadNPCD    // Signal for whethert to load PC4 data into registers (jal, jalr)
 );
 
   // Init instruction signals
-  wire type_r, inst_add, inst_addu, inst_sub, inst_subu, inst_slt;
-  wire inst_sltu, inst_and, inst_or, inst_nor, inst_xor, inst_sll;
-  wire inst_srl, inst_sra, inst_sllv, inst_srlv, inst_srav, inst_jr;
-  wire inst_jalr, inst_addi, inst_addiu, inst_sltiu;
-  wire inst_andi, inst_ori, inst_xori, inst_lui, inst_lw, inst_sw;
-  wire inst_beq, inst_bne, inst_j, inst_jal;
+  wire type_r;
+  wire inst_add, inst_addu, inst_sub, inst_subu, inst_slt, inst_sltu, inst_and, inst_or, inst_nor, inst_xor;
+  wire inst_sll, inst_srl, inst_sra, inst_sllv, inst_srlv, inst_srav, inst_jr, inst_jalr, inst_addi, inst_addiu;
+  wire inst_sltiu, inst_andi, inst_ori, inst_xori, inst_lui, inst_lw, inst_sw, inst_beq, inst_bne, inst_j;
+  wire inst_jal;
 
   /* --- Decode instructions --- */
 
@@ -77,8 +89,7 @@ module control_unit (
 
   // ALUOp
   assign AluOpD =
-       (inst_addi || inst_addiu || inst_add ||
-        inst_addu || inst_lw    || inst_sw    ) ? `ALU_OP_ADD  : // ADD
+      (inst_addi || inst_addiu || inst_add || inst_addu || inst_lw || inst_sw) ? `ALU_OP_ADD : // ADD
       (inst_sub || inst_subu || inst_beq) ? `ALU_OP_SUB :  // SUB
       (inst_slt || inst_sltu || inst_sltiu) ? `ALU_OP_SLT :  // SLT
       (inst_and || inst_andi) ? `ALU_OP_AND :  // AND
@@ -91,61 +102,53 @@ module control_unit (
       (inst_sllv) ? `ALU_OP_SLLV :  // SLLV
       (inst_srlv) ? `ALU_OP_SRLV :  // SRLV
       (inst_srav) ? `ALU_OP_SRAV :  // SRAV
-      `ALU_OP_DEFAULT;  // Default ALU operand (output the second ALU input)
+      `ALU_OP_DEFAULT;  // Default ALU operand (output the AluInput2)
 
   // RegDst
   assign RegDstD =
-       (inst_add   || inst_addu  || inst_sub   || inst_subu  ||
-        inst_slt   || inst_sltu  || inst_and   || inst_or    ||
-        inst_nor   || inst_xor   || inst_sll   || inst_srl   ||
-        inst_sra   || inst_sllv  || inst_srlv  || inst_srav  ||
-        inst_jalr                                            ) ? `REG_DST_RD :
-       (inst_lui   || inst_addi  || inst_addiu || inst_sltiu ||
-        inst_andi  || inst_ori   || inst_xori  || inst_lw    ) ? `REG_DST_RT :
-       (inst_jal) ? `REG_DST_REG_31 : `REG_DST_DEFAULT;
+      (inst_add || inst_addu || inst_sub || inst_subu || inst_slt || inst_sltu || inst_and || inst_or || inst_nor || inst_xor ||
+       inst_sll || inst_srl || inst_sra || inst_sllv || inst_srlv || inst_srav || inst_jalr) ? `REG_DST_RD :
+      (inst_lui || inst_addi || inst_addiu || inst_sltiu || inst_andi || inst_ori || inst_xori || inst_lw) ? `REG_DST_RT :
+      (inst_jal) ? `REG_DST_REG_31 :
+      `REG_DST_DEFAULT;
+
   // ALUSrc
   assign AluSrcD =
-       (inst_addi  || inst_addiu || inst_sltiu || inst_andi ||
-        inst_ori   || inst_xori  || inst_lw    || inst_sw   || inst_lui ) ? `ALU_SRC_IMM : `ALU_SRC_REG;
+       (inst_addi || inst_addiu || inst_sltiu || inst_andi || inst_ori || inst_xori || inst_lw || inst_sw || inst_lui) ? `ALU_SRC_IMM : `ALU_SRC_REG;
 
   // RegWrite
   assign RegWriteD =
-       (inst_lui   || type_r     || inst_addi  || inst_addiu ||
-        inst_sltiu || inst_andi  || inst_ori   || inst_xori  ||
-        inst_add   || inst_addu  || inst_sub   || inst_subu  ||
-        inst_slt   || inst_sltu  || inst_and   || inst_or    ||
-        inst_nor   || inst_xor   || inst_sll   || inst_srl   ||
-        inst_sra   || inst_sllv  || inst_srlv  || inst_srav  ||
-        inst_lw    || inst_jal   || inst_jalr                ) ? `REG_WRITE_EN : `REG_WRITE_DIS;
+       (inst_lui || type_r || inst_addi || inst_addiu ||inst_sltiu || inst_andi || inst_ori || inst_xori || inst_add || inst_addu ||
+        inst_sub || inst_subu || inst_slt || inst_sltu || inst_and || inst_or || inst_nor || inst_xor || inst_sll || inst_srl ||
+        inst_sra || inst_sllv || inst_srlv || inst_srav || inst_lw || inst_jal || inst_jalr) ? 1'b1 : 1'b0;
 
   // MemWrite
-  assign MemWriteD = (inst_sw) ? `MEM_WRITE_EN : `MEM_WRITE_DIS;
+  assign MemWriteD = (inst_sw) ? 1'b1 : 1'b0;
 
   // MemToReg
-  assign MemToRegD = (inst_lw) ? `MemToReg_EN : `MemToReg_DIS;
+  assign MemToRegD = (inst_lw) ? `MEMTOREG_EN : `MEMTOREG_DIS;
 
   // LoadNPC
-  assign LoadNPCD = (inst_jal || inst_jalr) ? `LoadNPC_EN : `LoadNPC_DIS;
+  assign LoadNPCD = (inst_jal || inst_jalr) ? `LOADNPC_EN : `LOADNPC_DIS;
 
   // ImmTypeD
   assign ImmTypeD =
       // shift left 16
       (inst_lui) ? `EXT_OP_SFT16 :
       // signed extend
-      (inst_add   || inst_addu  || inst_addi  || inst_sub   || inst_subu || inst_andi || inst_slt   || inst_sltu  ||
-       inst_and   || inst_or    || inst_nor   || inst_xor   ||
-       inst_sll   || inst_srl   || inst_sra   || inst_sllv  ||
-       inst_srlv  || inst_srav  || inst_ori   || inst_xori  || inst_beq  || inst_bne ) ? `EXT_OP_SIGNED :
+      (inst_add || inst_addu || inst_addi || inst_sub || inst_subu || inst_andi || inst_slt || inst_sltu || inst_and || inst_or ||
+       inst_nor || inst_xor || inst_sll || inst_srl || inst_sra || inst_sllv || inst_srlv || inst_srav ||inst_ori || inst_xori ||
+       inst_beq || inst_bne) ? `EXT_OP_SIGNED :
       // unsigned extend
       (inst_addiu || inst_sltiu || inst_lw || inst_sw) ? `EXT_OP_UNSIGNED : `EXT_OP_DEFAULT;
 
   // BrTypeD
-  assign BrTypeD = (inst_beq) ? 2'b01 : (inst_bne) ? 2'b10 : 2'b00;
+  assign BrTypeD = (inst_beq) ? `BRTYPE_BEQ : (inst_bne) ? `BRTYPE_BNE : `BRTYPE_DEFAULT;
 
   //JumpD
   assign JumpD = (inst_j || inst_jal) ? 1'b1 : 1'b0;
 
   //JrD
-  assign JrD = (inst_jr || inst_jalr ) ? 1'b1 : 1'b0;
+  assign JrD = (inst_jr || inst_jalr) ? 1'b1 : 1'b0;
 
 endmodule

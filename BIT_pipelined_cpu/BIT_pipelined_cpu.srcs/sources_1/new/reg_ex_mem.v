@@ -1,12 +1,22 @@
 `timescale 1ns / 1ps
 `include "definitions.vh"
-
-/*
- * Module: ZanPU EX/MEM Register
- *
- * Input:
- * Output:
- */
+//////////////////////////////////////////////////////////////////////////////////
+// Company: Beijing Institute Of Technology
+// Engineer: Hao Yang, Xinyu Wang, Haoyang Li
+//
+// Create Date: 2023/08/23
+// Design Name: BIT-pipelined-cpu
+// Module Name: reg_ex_mem
+// Project Name: BIT_pipelined_cpu
+// Target Devices: xc7a35tcsg324-1
+// Tool Versions: Vivado 2019.2
+// Description:
+//
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+//
+//////////////////////////////////////////////////////////////////////////////////
 
 module reg_ex_mem (
     input wire        clk,
@@ -33,16 +43,15 @@ module reg_ex_mem (
 );
 
   always @(posedge clk) begin
-
     if (rst) begin
-      PCM           <= `INIT_32;
-      AluOutM       <= `INIT_32;
-      MemWriteDataM <= `INIT_32;
-      RegWriteAddrM <= `INIT_5;
-      MemWriteM     <= `MEM_WRITE_DIS;
-      MemToRegM     <= `MemToReg_DIS;
-      RegWriteM     <= `REG_WRITE_DIS;
-      LoadNPCM      <= `LoadNPC_DIS;
+      PCM           <= 32'h0;
+      AluOutM       <= 32'h0;
+      MemWriteDataM <= 32'h0;
+      RegWriteAddrM <= 5'b0;
+      MemWriteM     <= 1'b0;
+      MemToRegM     <= 1'b0;
+      RegWriteM     <= 1'b0;
+      LoadNPCM      <= 1'b0;
     end else begin
       PCM           <= PCE;
       AluOutM       <= AluOutE;
