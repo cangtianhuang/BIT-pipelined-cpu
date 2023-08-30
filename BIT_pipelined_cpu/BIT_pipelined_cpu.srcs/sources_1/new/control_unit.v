@@ -19,9 +19,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module control_unit (
-    input wire       rst,
     input wire [5:0] OpD,     // Instruction Operator
-    input wire [4:0] ShamtD,  // Shift Smount
     input wire [5:0] FunctD,  // R-Type instruction function
 
     output wire       RegWriteD,  // Signal for whether to write to the register
@@ -128,7 +126,7 @@ module control_unit (
   // MemToReg
   assign MemToRegD = (inst_lw) ? `MEMTOREG_EN : `MEMTOREG_DIS;
 
-  // LoadNPC
+  // LoadNPC (jal, jalr: NPC->$31) (use NPC instead of AluOut)
   assign LoadNPCD = (inst_jal || inst_jalr) ? `LOADNPC_EN : `LOADNPC_DIS;
 
   // ImmTypeD
@@ -142,7 +140,7 @@ module control_unit (
       // unsigned extend
       (inst_addiu || inst_sltiu || inst_lw || inst_sw) ? `EXT_OP_UNSIGNED : `EXT_OP_DEFAULT;
 
-  // BrTypeD
+  // BrTypeD (beq or bne)
   assign BrTypeD = (inst_beq) ? `BRTYPE_BEQ : (inst_bne) ? `BRTYPE_BNE : `BRTYPE_DEFAULT;
 
   //JumpD

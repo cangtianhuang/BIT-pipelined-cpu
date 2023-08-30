@@ -38,6 +38,6 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Xilinx/MyVivadoStudy/BIT_pipelin
 INFO: [VRFC 10-311] analyzing module branch
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/BIT_cpu.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module BIT_cpu
-INFO: [VRFC 10-2458] undeclared symbol overflow, assumed default net type wire [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/BIT_cpu.v:296]
+INFO: [VRFC 10-2458] undeclared symbol overflow, assumed default net type wire [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/BIT_cpu.v:294]
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sim_1/new/testbench.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module testbench

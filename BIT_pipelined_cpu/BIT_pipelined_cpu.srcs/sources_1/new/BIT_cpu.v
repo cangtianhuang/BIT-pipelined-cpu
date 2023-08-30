@@ -149,9 +149,7 @@ module BIT_cpu (
   wire       LoadNPCD;
 
   control_unit control_unit (
-      .rst      (rst),
       .OpD      (OpD),
-      .ShamtD   (ShamtD),
       .FunctD   (FunctD),
       .RegWriteD(RegWriteD),
       .ImmTypeD (ImmTypeD),
@@ -193,7 +191,7 @@ module BIT_cpu (
   );
 
   jump_alu jump_alu (
-      .PCD    (PCD),
+      .PCD31_28    (PCD[31:28]),
       .Addr   (Addr),
       .JumpNPC(JumpNPC)
   );

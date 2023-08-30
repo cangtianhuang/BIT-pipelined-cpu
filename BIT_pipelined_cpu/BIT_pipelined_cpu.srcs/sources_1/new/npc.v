@@ -33,6 +33,8 @@ module npc (
 
     output wire [31:0] NPC
 );
-// jump directly, branch prediction (taken), wrong branch prediction (back to PC4), jump Rs, else PC4
+
+  // jump directly, branch prediction (taken), wrong branch prediction (back to PC4), jump Rs, else PC4
   assign NPC = (JumpD) ? JumpNPC : (|BrTypeD) ? BrNPCD : ((|BrTypeE) && ~BrE) ? PCE + 4 : (JrE) ? JrNPC : PCF + 4;
+
 endmodule
