@@ -71,7 +71,7 @@ module alu (
       `ALU_OP_SRAV:
       alu_temp_result <= ({{31{AluInput2[31]}}, 1'b0} << (~displacement)) | (AluInput2 >> displacement);
 
-      `ALU_OP_DEFAULT: alu_temp_result <= {AluInput2[31], AluInput2};
+      default: alu_temp_result <= {AluInput2[31], AluInput2};
     endcase
   end
 

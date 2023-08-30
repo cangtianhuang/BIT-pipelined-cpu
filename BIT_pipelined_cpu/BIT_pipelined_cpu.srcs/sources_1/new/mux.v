@@ -89,13 +89,13 @@ endmodule
 
 // Calculate the direct jump address
 module jump_alu (
-    input wire [31:0] PCD,
+    input wire [31:28] PCD31_28,
     input wire [25:0] Addr,
 
     output wire [31:0] JumpNPC
 );
 
-  assign JumpNPC = {PCD[31:28], Addr, 2'b00};
+  assign JumpNPC = {PCD31_28, Addr, 2'b00};
 
 endmodule
 
