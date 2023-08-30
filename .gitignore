@@ -3,6 +3,7 @@
 /BIT_pipelined_cpu/BIT_pipelined_cpu.hw/
 /BIT_pipelined_cpu/BIT_pipelined_cpu.ip_user_files/
 /BIT_pipelined_cpu/BIT_pipelined_cpu.sim/
+/BIT_pipelined_cpu/BIT_pipelined_cpu.runs/
 *.log
 *.jou
 *.str
