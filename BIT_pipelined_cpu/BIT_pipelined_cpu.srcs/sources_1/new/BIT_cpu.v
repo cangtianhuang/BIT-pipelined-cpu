@@ -191,9 +191,9 @@ module BIT_cpu (
   );
 
   jump_alu jump_alu (
-      .PCD31_28    (PCD[31:28]),
-      .Addr   (Addr),
-      .JumpNPC(JumpNPC)
+      .PCD31_28(PCD[31:28]),
+      .Addr    (Addr),
+      .JumpNPC (JumpNPC)
   );
 
   branch_alu branch_alu_D (
@@ -237,6 +237,7 @@ module BIT_cpu (
       .BrTypeD  (BrTypeD),
       .JrD      (JrD),
       .LoadNPCD (LoadNPCD),
+      .BrNPCD   (BrNPCD),
       .flushEX  (flushEX),
 
       .PCE      (PCE),
@@ -255,15 +256,11 @@ module BIT_cpu (
       .RegDstE  (RegDstE),
       .BrTypeE  (BrTypeE),
       .JrE      (JrE),
-      .LoadNPCE (LoadNPCE)
+      .LoadNPCE (LoadNPCE),
+      .BrNPCE   (BrNPCE)
   );
 
   /* --- Stage 3: Execution --- */
-  branch_alu branch_alu_E (
-      .PC(PCE),
-      .Imm(ImmE),
-      .BrNPC(BrNPCE)
-  );
 
   wire [31:0] ForwardData2;
 

@@ -30,16 +30,17 @@ module reg_id_ex (
     input wire [ 4:0] ShamtD,
     input wire [31:0] ImmD,
 
-    input wire       RegWriteD,
-    input wire       AluSrcD,
-    input wire [3:0] AluOpD,
-    input wire       MemWriteD,
-    input wire       MemToRegD,
-    input wire [1:0] RegDstD,
-    input wire [1:0] BrTypeD,
-    input wire       JrD,
-    input wire       LoadNPCD,
-    input wire       flushEX,
+    input wire        RegWriteD,
+    input wire        AluSrcD,
+    input wire [ 3:0] AluOpD,
+    input wire        MemWriteD,
+    input wire        MemToRegD,
+    input wire [ 1:0] RegDstD,
+    input wire [ 1:0] BrTypeD,
+    input wire        JrD,
+    input wire        LoadNPCD,
+    input wire [31:0] BrNPCD,
+    input wire        flushEX,
 
     output reg [31:0] PCE,
     output reg [31:0] RegOut1E,
@@ -50,15 +51,16 @@ module reg_id_ex (
     output reg [ 4:0] ShamtE,
     output reg [31:0] ImmE,
 
-    output reg       RegWriteE,
-    output reg       AluSrcE,
-    output reg [3:0] AluOpE,
-    output reg       MemWriteE,
-    output reg       MemToRegE,
-    output reg [1:0] RegDstE,
-    output reg [1:0] BrTypeE,
-    output reg       JrE,
-    output reg       LoadNPCE
+    output reg        RegWriteE,
+    output reg        AluSrcE,
+    output reg [ 3:0] AluOpE,
+    output reg        MemWriteE,
+    output reg        MemToRegE,
+    output reg [ 1:0] RegDstE,
+    output reg [ 1:0] BrTypeE,
+    output reg        JrE,
+    output reg        LoadNPCE,
+    output reg [31:0] BrNPCE
 );
 
   always @(posedge clk) begin
@@ -82,6 +84,7 @@ module reg_id_ex (
       BrTypeE   <= 2'b0;
       JrE       <= 1'b0;
       LoadNPCE  <= 1'b0;
+      BrNPCE    <= 32'h0;
     end else begin
       PCE       <= PCD;
       RegOut1E  <= RegOut1D;
@@ -101,6 +104,7 @@ module reg_id_ex (
       BrTypeE   <= BrTypeD;
       JrE       <= JrD;
       LoadNPCE  <= LoadNPCD;
+      BrNPCE    <= BrNPCD;
     end
   end
 
