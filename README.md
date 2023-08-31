@@ -1,2 +1,7 @@
 # BIT-pipelined-cpu
-A RISC-V cpu designed by us at BIT for learning purposes.
+
+A classic five-stage pipelined cpu based on the MIPS instruction set designed by BITers for learning purposes.
+
+BITers(students from Beijing Institute Of Technology): Hao Yang, Xinyu Wang, Haoyang Li.
+
+_For more details, please refer to the Verilog code, datapath diagram, experiment report and defense PPT._
