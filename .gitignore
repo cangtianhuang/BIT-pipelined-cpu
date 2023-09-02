@@ -4,6 +4,14 @@
 /BIT_pipelined_cpu/BIT_pipelined_cpu.ip_user_files/
 /BIT_pipelined_cpu/BIT_pipelined_cpu.sim/
 /BIT_pipelined_cpu/BIT_pipelined_cpu.runs/
+
+/vga_demo/vga_demo.cache/
+/vga_demo/.Xil/
+/vga_demo/vga_demo.hw/
+/vga_demo/vga_demo.ip_user_files/
+/vga_demo/vga_demo.sim/
+/vga_demo/vga_demo.runs/
+
 *.log
 *.jou
 *.str
