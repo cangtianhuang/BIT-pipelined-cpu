@@ -19,29 +19,26 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 module data_memory (
-    input  wire        clk,
-    input  wire        rst,
-    input  wire        MemWrite,      // enable memory write
-    input  wire        MemRead,       // enable memory read
-    input  wire [11:2] MemAddr,       // memory target address
-    input  wire [31:0] WriteMemData,  // write data to data memory
-    output wire [31:0] ReadMemData    // read data from data memory
-
+    input wire clk,
+    input wire rst,
+    input wire MemWrite,  // enable memory write
+    input wire MemRead,  // enable memory read
+    input wire [11:2] MemAddr,       // memory target address ( byte-oriented >> 2 -> word-oriented(4bytes) )
+    input wire [31:0] WriteMemData,  // write data to data memory
+    output wire [31:0] ReadMemData   // read data from data memory
 );
 
-  // Data Memory Storage
-  reg [31:0] memory[1023:0];
-  assign ReadMemData = MemRead ? memory[MemAddr] : 32'b0;
+  // Data Memory Storage (word-oriented)
+  reg [31:0] memory[31:0];
   integer i;
 
+  //initial for (i = 0; i < 32; i = i + 1) memory[i] = 0;
+  initial $readmemh("C:/Users/86159/Downloads/data.mem", memory);
+
+  assign ReadMemData = MemRead ? memory[MemAddr] : 32'h0;
+
   always @(negedge clk) begin
-    if (rst) begin
-      for (i = 0; i < 32; i = i + 1) begin
-        memory[i] <= 32'b0;
-      end
-    end else if (MemWrite) begin
-      memory[MemAddr] <= WriteMemData;
-    end
+    if (MemWrite) memory[MemAddr] = WriteMemData;
   end
-  
+
 endmodule
