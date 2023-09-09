@@ -4,7 +4,7 @@
 // Company: Beijing Institute Of Technology
 // Engineer: Hao Yang, Xinyu Wang, Haoyang Li
 //
-// Create Date: 2023/08/23
+// Create Date: 2023/08/25
 // Design Name: BIT-pipelined-cpu
 // Module Name: BIT_cpu
 // Project Name: BIT_pipelined_cpu
@@ -36,10 +36,9 @@ module BIT_cpu (
   wire [4:0] RegWriteAddrE;
   wire AluSrcD;
   wire MemToRegE;
-  wire JumpD;
+  wire JrD;
   wire JrE;
   wire BrE;
-  wire [1:0] BrTypeD;
   wire [1:0] BrTypeE;
   wire stallIF;
   wire stallID;
@@ -52,10 +51,9 @@ module BIT_cpu (
       .AluSrcD      (AluSrcD),
       .MemToRegE    (MemToRegE),
       .RegWriteAddrE(RegWriteAddrE),
-      .JumpD        (JumpD),
+      .JrD          (JrD),
       .JrE          (JrE),
       .BrE          (BrE),
-      .BrTypeD      (BrTypeD),
       .BrTypeE      (BrTypeE),
       .stallIF      (stallIF),
       .stallID      (stallID),
@@ -63,28 +61,22 @@ module BIT_cpu (
       .flushEX      (flushEX)
   );
 
-  wire [31:0] PCF;
-  wire [31:0] JumpNPC;
-  wire [31:0] BrNPCD;
-  wire [31:0] BrNPCE;
+  wire [31:0] ForwardData1;
   wire [31:0] PCE;
+  wire [31:0] JumpNPCF;
   wire [31:0] NPC;
 
-  wire [31:0] ForwardData1;
-
   npc npc (
-      .PCF    (PCF),
-      .JumpD  (JumpD),
-      .JrE    (JrE),
-      .BrTypeD(BrTypeD),
-      .BrTypeE(BrTypeE),
-      .BrE    (BrE),
-      .JumpNPC(JumpNPC),
-      .JrNPC  (ForwardData1),
-      .BrNPCD (BrNPCD),
-      .PCE    (PCE),
-      .NPC    (NPC)
+      .BrTypeE (BrTypeE),
+      .BrE     (BrE),
+      .JrE     (JrE),
+      .JrNPC   (ForwardData1),
+      .PCE     (PCE),
+      .JumpNPCF(JumpNPCF),
+      .NPC     (NPC)
   );
+
+  wire [31:0] PCF;
 
   pc pc (
       .clk    (clk),
@@ -101,6 +93,27 @@ module BIT_cpu (
       .instr     (instrF)
   );
 
+  wire [5:0] OpF;
+  wire [5:0] FunctF;
+  wire [25:0] AddrF;
+  wire [15:0] Imm16F;
+  wire JrF;
+
+  assign OpF = instrF[31:26];
+  assign FunctF = instrF[5:0];
+  assign AddrF = instrF[25:0];
+  assign Imm16F = instrF[15:0];
+
+  direct_jump direct_jump (
+      .OpF     (OpF),
+      .FunctF  (FunctF),
+      .AddrF   (AddrF),
+      .Imm16F  (Imm16F),
+      .PCF     (PCF),
+      .JumpNPCF(JumpNPCF),
+      .JrF     (JrF)
+  );
+
   /* if/id register */
 
   wire [31:0] instrD;
@@ -111,23 +124,22 @@ module BIT_cpu (
       .rst    (rst),
       .PCF    (PCF),
       .instrF (instrF),
+      .JrF    (JrF),
       .stallID(stallID),
       .flushID(flushID),
 
       .PCD   (PCD),
-      .instrD(instrD)
+      .instrD(instrD),
+      .JrD (JrD)
   );
 
   /* --- Stage 2: Instruction Decode --- */
 
   wire [ 5:0] OpD;
   wire [ 5:0] FunctD;
-
   wire [ 4:0] RdD;
   wire [ 4:0] ShamtD;
-
-  wire [15:0] Imm16;
-  wire [25:0] Addr;
+  wire [15:0] Imm16D;
 
   // Assign decoded instr to variables
   assign OpD    = instrD[31:26];
@@ -136,8 +148,7 @@ module BIT_cpu (
   assign RtD    = instrD[20:16];
   assign RdD    = instrD[15:11];
   assign ShamtD = instrD[10:6];
-  assign Imm16  = instrD[15:0];
-  assign Addr   = instrD[25:0];
+  assign Imm16D  = instrD[15:0];
 
   wire       RegWriteD;
   wire [1:0] ImmTypeD;
@@ -145,7 +156,7 @@ module BIT_cpu (
   wire       MemWriteD;
   wire       MemToRegD;
   wire [1:0] RegDstD;
-  wire       JrD;
+  wire [1:0] BrTypeD;
   wire       LoadNPCD;
 
   control_unit control_unit (
@@ -159,8 +170,6 @@ module BIT_cpu (
       .MemToRegD(MemToRegD),
       .RegDstD  (RegDstD),
       .BrTypeD  (BrTypeD),
-      .JumpD    (JumpD),
-      .JrD      (JrD),
       .LoadNPCD (LoadNPCD)
   );
 
@@ -185,21 +194,9 @@ module BIT_cpu (
   wire [31:0] ImmD;
 
   extend extend (
-      .Imm16   (Imm16),
+      .Imm16   (Imm16D),
       .ImmTypeD(ImmTypeD),
       .ImmD    (ImmD)
-  );
-
-  jump_alu jump_alu (
-      .PCD31_28(PCD[31:28]),
-      .Addr    (Addr),
-      .JumpNPC (JumpNPC)
-  );
-
-  branch_alu branch_alu_D (
-      .PC   (PCD),
-      .Imm  (ImmD),
-      .BrNPC(BrNPCD)
   );
 
   wire [31:0] RegOut1E;
@@ -237,7 +234,6 @@ module BIT_cpu (
       .BrTypeD  (BrTypeD),
       .JrD      (JrD),
       .LoadNPCD (LoadNPCD),
-      .BrNPCD   (BrNPCD),
       .flushEX  (flushEX),
 
       .PCE      (PCE),
@@ -256,8 +252,7 @@ module BIT_cpu (
       .RegDstE  (RegDstE),
       .BrTypeE  (BrTypeE),
       .JrE      (JrE),
-      .LoadNPCE (LoadNPCE),
-      .BrNPCE   (BrNPCE)
+      .LoadNPCE (LoadNPCE)
   );
 
   /* --- Stage 3: Execution --- */

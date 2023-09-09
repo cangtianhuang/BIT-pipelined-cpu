@@ -1,0 +1,105 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Fri Sep  8 20:16:27 2023
+| Host         : DESKTOP-NIV9KH9 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file test_pressINC_control_control_sets_placed.rpt
+| Design       : test_pressINC_control
+| Device       : xc7a35t
+--------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    27 |
+|    Minimum number of control sets                        |    27 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    45 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    27 |
+| >= 0 to < 4        |     4 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     1 |
+| >= 16              |    19 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |               2 |            2 |
+| No           | No                    | Yes                    |              32 |            8 |
+| No           | Yes                   | No                     |             247 |          131 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |              29 |           10 |
+| Yes          | Yes                   | No                     |             501 |          139 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------+-------------------------------------------+----------------------------------+------------------+----------------+
+|    Clock Signal    |               Enable Signal               |         Set/Reset Signal         | Slice Load Count | Bel Load Count |
++--------------------+-------------------------------------------+----------------------------------+------------------+----------------+
+|  clk_BUFG          |                                           |                                  |                1 |              1 |
+|  clk_BUFG          | key_rebounce/key_state_i_1_n_0            | BIT_cpu/register_file/SR[0]      |                1 |              1 |
+|  clk_BUFG          | key_rebounce/key_out_i_1_n_0              | BIT_cpu/register_file/SR[0]      |                1 |              1 |
+|  sys_clk_IBUF_BUFG |                                           |                                  |                1 |              1 |
+|  sys_clk_IBUF_BUFG |                                           | clear                            |                1 |              4 |
+|  clk_BUFG          | BIT_cpu/reg_id_ex/E[0]                    | BIT_cpu/register_file/SR[0]      |                2 |              5 |
+|  clk_BUFG          | light_control/index_temp                  | BIT_cpu/register_file/SR[0]      |                3 |              8 |
+|  clk_BUFG          | key_rebounce/debounce_counter[13]_i_1_n_0 | BIT_cpu/register_file/SR[0]      |                3 |             14 |
+|  clk_BUFG          | BIT_cpu/reg_id_ex/E[0]                    | BIT_cpu/reg_id_ex/SR[0]          |                6 |             21 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/E[0]                   | BIT_cpu/register_file/SR[0]      |                5 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_0[0]     | BIT_cpu/register_file/SR[0]      |                8 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_11[0]    | BIT_cpu/register_file/SR[0]      |                5 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_12[0]    | BIT_cpu/register_file/SR[0]      |                6 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_13[0]    | BIT_cpu/register_file/SR[0]      |               13 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_10[0]    | BIT_cpu/register_file/SR[0]      |                7 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_1[0]     | BIT_cpu/register_file/SR[0]      |               11 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_2[0]     | BIT_cpu/register_file/SR[0]      |                5 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_3[0]     | BIT_cpu/register_file/SR[0]      |                8 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_4[0]     | BIT_cpu/register_file/SR[0]      |               12 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_5[0]     | BIT_cpu/register_file/SR[0]      |               10 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_6[0]     | BIT_cpu/register_file/SR[0]      |               14 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_7[0]     | BIT_cpu/register_file/SR[0]      |               11 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_8[0]     | BIT_cpu/register_file/SR[0]      |               10 |             32 |
+| ~clk_BUFG          | BIT_cpu/reg_mem_wb/RegWriteW_reg_9[0]     | BIT_cpu/register_file/SR[0]      |                8 |             32 |
+| ~clk_BUFG          | key_rebounce/p_0_in                       |                                  |                9 |             72 |
+|  clk_BUFG          |                                           | BIT_cpu/reg_id_ex/PCE[5]_i_1_n_0 |               65 |            100 |
+|  clk_BUFG          |                                           | BIT_cpu/register_file/SR[0]      |               73 |            175 |
++--------------------+-------------------------------------------+----------------------------------+------------------+----------------+
+
+

@@ -1,0 +1,668 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Fri Sep  8 20:13:53 2023
+# Process ID: 18892
+# Current directory: E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.runs/synth_1
+# Command line: vivado.exe -log test_pressINC_control.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source test_pressINC_control.tcl
+# Log file: E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.runs/synth_1/test_pressINC_control.vds
+# Journal file: E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source test_pressINC_control.tcl -notrace
+Command: synth_design -top test_pressINC_control -part xc7a35tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcsg324-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 12196 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 835.852 ; gain = 235.570
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'test_pressINC_control' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/test_pressINC_control.v:23]
+INFO: [Synth 8-6157] synthesizing module 'key_rebounce' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/key_rebounce.v:23]
+	Parameter DEBOUNCE_COUNT bound to: 10000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'key_rebounce' (1#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/key_rebounce.v:23]
+INFO: [Synth 8-6157] synthesizing module 'BIT_cpu' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/BIT_cpu.v:21]
+INFO: [Synth 8-6157] synthesizing module 'hazard_unit' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/hazard_unit.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'hazard_unit' (2#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/hazard_unit.v:21]
+INFO: [Synth 8-6157] synthesizing module 'npc' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/npc.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'npc' (3#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/npc.v:21]
+INFO: [Synth 8-6157] synthesizing module 'pc' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/pc.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'pc' (4#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/pc.v:21]
+INFO: [Synth 8-6157] synthesizing module 'instruction_memory' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/instruction_memory.v:21]
+INFO: [Synth 8-3876] $readmem data file 'C:/Users/86159/Downloads/instr.mem' is read successfully [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/instruction_memory.v:29]
+INFO: [Synth 8-6155] done synthesizing module 'instruction_memory' (5#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/instruction_memory.v:21]
+INFO: [Synth 8-6157] synthesizing module 'direct_jump' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/direct_jump.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'direct_jump' (6#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/direct_jump.v:24]
+INFO: [Synth 8-6157] synthesizing module 'reg_if_id' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/reg_if_id.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'reg_if_id' (7#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/reg_if_id.v:21]
+INFO: [Synth 8-6157] synthesizing module 'control_unit' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/control_unit.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'control_unit' (8#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/control_unit.v:21]
+INFO: [Synth 8-6157] synthesizing module 'register_file' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/register_file.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'register_file' (9#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/register_file.v:21]
+INFO: [Synth 8-6157] synthesizing module 'extend' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/extend.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'extend' (10#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/extend.v:21]
+INFO: [Synth 8-6157] synthesizing module 'reg_id_ex' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/reg_id_ex.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'reg_id_ex' (11#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/reg_id_ex.v:21]
+INFO: [Synth 8-6157] synthesizing module 'reg_dst_mux' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/mux.v:22]
+INFO: [Synth 8-6155] done synthesizing module 'reg_dst_mux' (12#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/mux.v:22]
+INFO: [Synth 8-6157] synthesizing module 'alu_src_mux' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/mux.v:37]
+INFO: [Synth 8-6155] done synthesizing module 'alu_src_mux' (13#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/mux.v:37]
+INFO: [Synth 8-6157] synthesizing module 'alu' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/alu.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (14#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/alu.v:21]
+INFO: [Synth 8-6157] synthesizing module 'branch' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/branch.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'branch' (15#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/branch.v:21]
+INFO: [Synth 8-6157] synthesizing module 'forwarding_unit' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/forwarding_unit.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'forwarding_unit' (16#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/forwarding_unit.v:21]
+INFO: [Synth 8-6157] synthesizing module 'forward_mux' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/mux.v:76]
+INFO: [Synth 8-6155] done synthesizing module 'forward_mux' (17#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/mux.v:76]
+INFO: [Synth 8-6157] synthesizing module 'reg_ex_mem' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/reg_ex_mem.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'reg_ex_mem' (18#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/reg_ex_mem.v:21]
+INFO: [Synth 8-6157] synthesizing module 'result_mux' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/mux.v:50]
+INFO: [Synth 8-6155] done synthesizing module 'result_mux' (19#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/mux.v:50]
+INFO: [Synth 8-6157] synthesizing module 'data_memory' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/data_memory.v:21]
+INFO: [Synth 8-3876] $readmem data file 'C:/Users/86159/Downloads/data.mem' is read successfully [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/data_memory.v:41]
+INFO: [Synth 8-6155] done synthesizing module 'data_memory' (20#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/data_memory.v:21]
+INFO: [Synth 8-6157] synthesizing module 'reg_mem_wb' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/reg_mem_wb.v:21]
+INFO: [Synth 8-6155] done synthesizing module 'reg_mem_wb' (21#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/reg_mem_wb.v:21]
+INFO: [Synth 8-6157] synthesizing module 'mem_to_reg_mux' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/mux.v:63]
+INFO: [Synth 8-6155] done synthesizing module 'mem_to_reg_mux' (22#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/mux.v:63]
+INFO: [Synth 8-6155] done synthesizing module 'BIT_cpu' (23#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/BIT_cpu.v:21]
+INFO: [Synth 8-6157] synthesizing module 'light_control' [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/light_control.v:23]
+	Parameter count_max bound to: 10000 - type: integer 
+	Parameter A bound to: 4'b1000 
+	Parameter B bound to: 4'b0100 
+	Parameter C bound to: 4'b0010 
+	Parameter D bound to: 4'b0001 
+INFO: [Synth 8-6155] done synthesizing module 'light_control' (24#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/light_control.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'test_pressINC_control' (25#1) [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/sources_1/new/test_pressINC_control.v:23]
+WARNING: [Synth 8-3331] design data_memory has unconnected port rst
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:10 . Memory (MB): peak = 908.680 ; gain = 308.398
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 908.680 ; gain = 308.398
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:11 . Memory (MB): peak = 908.680 ; gain = 308.398
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.076 . Memory (MB): peak = 908.680 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/constrs_1/new/test_press_cons.xdc]
+Finished Parsing XDC File [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/constrs_1/new/test_press_cons.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.srcs/constrs_1/new/test_press_cons.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/test_pressINC_control_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/test_pressINC_control_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1018.145 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.020 . Memory (MB): peak = 1018.145 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 1018.145 ; gain = 417.863
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 1018.145 ; gain = 417.863
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:22 . Memory (MB): peak = 1018.145 ; gain = 417.863
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "memory" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'index_temp_reg' in module 'light_control'
+INFO: [Synth 8-5544] ROM "index_temp" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+                       D |                             0001 |                             0001
+                       C |                             0010 |                             0010
+                       B |                             0100 |                             0100
+                       A |                             1000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'index_temp_reg' in module 'light_control'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:24 . Memory (MB): peak = 1018.145 ; gain = 417.863
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     33 Bit       Adders := 1     
+	   3 Input     33 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 5     
+	   2 Input     14 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 33    
+	   2 Input      3 Bit       Adders := 1     
++---XORs : 
+	   2 Input     33 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               32 Bit    Registers := 45    
+	               20 Bit    Registers := 1     
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 3     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 17    
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 12    
+	  12 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 3     
+	   2 Input     14 Bit        Muxes := 1     
+	   4 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 3     
+	  14 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 26    
+	   2 Input      2 Bit        Muxes := 6     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 91    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module test_pressINC_control 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      4 Bit       Adders := 33    
+	   2 Input      3 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      4 Bit        Muxes := 26    
+	   2 Input      1 Bit        Muxes := 1     
+Module key_rebounce 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     14 Bit       Adders := 1     
++---Registers : 
+	               20 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     14 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module npc 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+Module pc 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+Module instruction_memory 
+Detailed RTL Component Info : 
++---Muxes : 
+	  12 Input     32 Bit        Muxes := 1     
+Module direct_jump 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+Module reg_if_id 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
+Module control_unit 
+Detailed RTL Component Info : 
++---Muxes : 
+	  14 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 4     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 53    
+Module register_file 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 32    
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 32    
+Module extend 
+Detailed RTL Component Info : 
++---Muxes : 
+	   3 Input     32 Bit        Muxes := 1     
+Module reg_id_ex 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 4     
+	                5 Bit    Registers := 4     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
+Module reg_dst_mux 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input      5 Bit        Muxes := 1     
+Module alu_src_mux 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module alu 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     33 Bit       Adders := 1     
+	   3 Input     33 Bit       Adders := 1     
++---XORs : 
+	   2 Input     33 Bit         XORs := 1     
++---Muxes : 
+	   2 Input      5 Bit        Muxes := 1     
+Module branch 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module forwarding_unit 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+Module forward_mux 
+Detailed RTL Component Info : 
++---Muxes : 
+	   3 Input     32 Bit        Muxes := 1     
+Module reg_ex_mem 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 4     
+Module result_mux 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module data_memory 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	   2 Input      5 Bit        Muxes := 2     
+Module reg_mem_wb 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
+Module mem_to_reg_mux 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module light_control 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3917] design test_pressINC_control has port LEDControl[7] driven by constant 0
+WARNING: [Synth 8-3331] design data_memory has unconnected port rst
+WARNING: [Synth 8-3331] design data_memory has unconnected port MemAddr[11]
+WARNING: [Synth 8-3331] design data_memory has unconnected port MemAddr[10]
+WARNING: [Synth 8-3331] design data_memory has unconnected port MemAddr[9]
+WARNING: [Synth 8-3331] design data_memory has unconnected port MemAddr[8]
+WARNING: [Synth 8-3331] design data_memory has unconnected port MemAddr[7]
+WARNING: [Synth 8-3331] design data_memory has unconnected port WordAddr[11]
+WARNING: [Synth 8-3331] design data_memory has unconnected port WordAddr[10]
+WARNING: [Synth 8-3331] design data_memory has unconnected port WordAddr[9]
+WARNING: [Synth 8-3331] design data_memory has unconnected port WordAddr[8]
+WARNING: [Synth 8-3331] design data_memory has unconnected port WordAddr[7]
+WARNING: [Synth 8-3331] design instruction_memory has unconnected port instr_addr[11]
+WARNING: [Synth 8-3331] design instruction_memory has unconnected port instr_addr[10]
+WARNING: [Synth 8-3331] design instruction_memory has unconnected port instr_addr[9]
+WARNING: [Synth 8-3331] design instruction_memory has unconnected port instr_addr[8]
+WARNING: [Synth 8-3331] design instruction_memory has unconnected port instr_addr[7]
+WARNING: [Synth 8-3331] design instruction_memory has unconnected port instr_addr[6]
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[13]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[15]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[11]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[14]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[12]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[14]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[15]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[10]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[10]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[9]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[9]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[8]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[8]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[7]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[7]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[6]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[6]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[3]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[1]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[3]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[25]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[30]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[23]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[30]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/RdE_reg[3]' (FDR) to 'BIT_cpu/reg_id_ex/RdE_reg[0]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/RdE_reg[4]' (FDR) to 'BIT_cpu/reg_id_ex/RdE_reg[2]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/RdE_reg[0]' (FDR) to 'BIT_cpu/reg_id_ex/RdE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[18]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[30]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/RtE_reg[2]' (FDR) to 'BIT_cpu/reg_id_ex/RsE_reg[2]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/RdE_reg[2]' (FDR) to 'BIT_cpu/reg_id_ex/ShamtE_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (BIT_cpu/\reg_if_id/instrD_reg[30] )
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[26]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[31]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ShamtE_reg[4]' (FDR) to 'BIT_cpu/reg_id_ex/ShamtE_reg[3]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ShamtE_reg[3]' (FDR) to 'BIT_cpu/reg_id_ex/ShamtE_reg[2]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ShamtE_reg[2]' (FDR) to 'BIT_cpu/reg_id_ex/ShamtE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ShamtE_reg[1]' (FDR) to 'BIT_cpu/reg_id_ex/ShamtE_reg[0]'
+INFO: [Synth 8-3886] merging instance 'key_rebounce/debounce_counter_reg[14]' (FDCE) to 'key_rebounce/debounce_counter_reg[19]'
+INFO: [Synth 8-3886] merging instance 'key_rebounce/debounce_counter_reg[15]' (FDCE) to 'key_rebounce/debounce_counter_reg[19]'
+INFO: [Synth 8-3886] merging instance 'key_rebounce/debounce_counter_reg[16]' (FDCE) to 'key_rebounce/debounce_counter_reg[19]'
+INFO: [Synth 8-3886] merging instance 'key_rebounce/debounce_counter_reg[17]' (FDCE) to 'key_rebounce/debounce_counter_reg[19]'
+INFO: [Synth 8-3886] merging instance 'key_rebounce/debounce_counter_reg[18]' (FDCE) to 'key_rebounce/debounce_counter_reg[19]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\key_rebounce/debounce_counter_reg[19] )
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_if_id/instrD_reg[3]' (FDRE) to 'BIT_cpu/reg_if_id/instrD_reg[4]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[29]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[17]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[13]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[17]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[19]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[25]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[19]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[9]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[19]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[22]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[27]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[28]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[11]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[12]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[15]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[23]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[22]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[7]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[28]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[30]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[12]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[14]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[24]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[22]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[8]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[26]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[22]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[10]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[1]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[3]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[3]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[6]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[20]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[22]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/ImmE_reg[4]' (FDR) to 'BIT_cpu/reg_id_ex/ImmE_reg[6]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (BIT_cpu/\reg_if_id/JrD_reg )
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/JrE_reg' (FDR) to 'BIT_cpu/reg_id_ex/BrTypeE_reg[1]'
+INFO: [Synth 8-3886] merging instance 'BIT_cpu/reg_id_ex/LoadNPCE_reg' (FDR) to 'BIT_cpu/reg_id_ex/BrTypeE_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (BIT_cpu/\reg_id_ex/BrTypeE_reg[1] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:36 ; elapsed = 00:00:44 . Memory (MB): peak = 1018.145 ; gain = 417.863
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping	Report (see note below)
++--------------------+------------+-----------+----------------------+--------------+
+|Module Name         | RTL Object | Inference | Size (Depth x Width) | Primitives   | 
++--------------------+------------+-----------+----------------------+--------------+
+|BIT_cpu/data_memory | memory_reg | Implied   | 32 x 32              | RAM32M x 12	 | 
++--------------------+------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:46 ; elapsed = 00:00:54 . Memory (MB): peak = 1018.145 ; gain = 417.863
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:00:55 . Memory (MB): peak = 1018.145 ; gain = 417.863
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Final Mapping	Report
++--------------------+------------+-----------+----------------------+--------------+
+|Module Name         | RTL Object | Inference | Size (Depth x Width) | Primitives   | 
++--------------------+------------+-----------+----------------------+--------------+
+|BIT_cpu/data_memory | memory_reg | Implied   | 32 x 32              | RAM32M x 12	 | 
++--------------------+------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\BIT_cpu/register_file/regs_reg[0][1] )
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:48 ; elapsed = 00:00:57 . Memory (MB): peak = 1124.125 ; gain = 523.844
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:53 ; elapsed = 00:01:02 . Memory (MB): peak = 1131.055 ; gain = 530.773
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:53 ; elapsed = 00:01:02 . Memory (MB): peak = 1131.055 ; gain = 530.773
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:53 ; elapsed = 00:01:02 . Memory (MB): peak = 1131.055 ; gain = 530.773
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:53 ; elapsed = 00:01:02 . Memory (MB): peak = 1131.055 ; gain = 530.773
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:53 ; elapsed = 00:01:02 . Memory (MB): peak = 1131.055 ; gain = 530.773
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:53 ; elapsed = 00:01:02 . Memory (MB): peak = 1131.055 ; gain = 530.773
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |CARRY4 |    41|
+|3     |LUT1   |     6|
+|4     |LUT2   |   183|
+|5     |LUT3   |   114|
+|6     |LUT4   |   112|
+|7     |LUT5   |   256|
+|8     |LUT6   |   767|
+|9     |MUXF7  |    96|
+|10    |MUXF8  |    32|
+|11    |RAM32M |     9|
+|12    |FDCE   |    60|
+|13    |FDPE   |     1|
+|14    |FDRE   |   750|
+|15    |IBUF   |     3|
+|16    |OBUF   |    12|
++------+-------+------+
+
+Report Instance Areas: 
++------+-------------------+---------------+------+
+|      |Instance           |Module         |Cells |
++------+-------------------+---------------+------+
+|1     |top                |               |  2444|
+|2     |  BIT_cpu          |BIT_cpu        |  2271|
+|3     |    alu_src_mux    |alu_src_mux    |    32|
+|4     |    data_memory    |data_memory    |    94|
+|5     |    extend         |extend         |    11|
+|6     |    forward_mux_rs |forward_mux    |    35|
+|7     |    forward_mux_rt |forward_mux_0  |    69|
+|8     |    mem_to_reg_mux |mem_to_reg_mux |    32|
+|9     |    pc             |pc             |    37|
+|10    |    reg_dst_mux    |reg_dst_mux    |     6|
+|11    |    reg_ex_mem     |reg_ex_mem     |   240|
+|12    |    reg_id_ex      |reg_id_ex      |   707|
+|13    |    reg_if_id      |reg_if_id      |    37|
+|14    |    reg_mem_wb     |reg_mem_wb     |   170|
+|15    |    register_file  |register_file  |   801|
+|16    |  key_rebounce     |key_rebounce   |    42|
+|17    |  light_control    |light_control  |   101|
++------+-------------------+---------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:53 ; elapsed = 00:01:02 . Memory (MB): peak = 1131.055 ; gain = 530.773
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 18 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:44 ; elapsed = 00:00:56 . Memory (MB): peak = 1131.055 ; gain = 421.309
+Synthesis Optimization Complete : Time (s): cpu = 00:00:54 ; elapsed = 00:01:03 . Memory (MB): peak = 1131.055 ; gain = 530.773
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.054 . Memory (MB): peak = 1135.910 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 178 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 9 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1135.910 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 9 instances were transformed.
+  RAM32M => RAM32M (inverted pins: WCLK) (RAMD32(x6), RAMS32(x2)): 9 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+156 Infos, 19 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:00 ; elapsed = 00:01:15 . Memory (MB): peak = 1135.910 ; gain = 830.434
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1135.910 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'E:/Xilinx/MyVivadoStudy/BIT_pipelined_cpu/BIT_pipelined_cpu.runs/synth_1/test_pressINC_control.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file test_pressINC_control_utilization_synth.rpt -pb test_pressINC_control_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Fri Sep  8 20:15:30 2023...

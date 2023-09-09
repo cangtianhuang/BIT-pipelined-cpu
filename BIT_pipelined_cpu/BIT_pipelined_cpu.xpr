@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Product Version: Vivado v2021.2 (64-bit)              -->
+<!-- Product Version: Vivado v2019.2 (64-bit)              -->
 <!--                                                         -->
-<!-- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.   -->
+<!-- Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="56" Path="C:/Users/ASUS/Desktop/wksp/cpu/BIT_pipelined_cpu/BIT_pipelined_cpu.xpr">
+<Project Version="7" Minor="44" Path="D:/GitLocal/BIT-pipelined-cpu/BIT_pipelined_cpu/BIT_pipelined_cpu.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="8baa361292984118960a748ab216f231"/>
@@ -12,43 +12,17 @@
     <Option Name="CompiledLibDirXSim" Val=""/>
     <Option Name="CompiledLibDirModelSim" Val="$PCACHEDIR/compile_simlib/modelsim"/>
     <Option Name="CompiledLibDirQuesta" Val="$PCACHEDIR/compile_simlib/questa"/>
+    <Option Name="CompiledLibDirIES" Val="$PCACHEDIR/compile_simlib/ies"/>
     <Option Name="CompiledLibDirXcelium" Val="$PCACHEDIR/compile_simlib/xcelium"/>
     <Option Name="CompiledLibDirVCS" Val="$PCACHEDIR/compile_simlib/vcs"/>
     <Option Name="CompiledLibDirRiviera" Val="$PCACHEDIR/compile_simlib/riviera"/>
     <Option Name="CompiledLibDirActivehdl" Val="$PCACHEDIR/compile_simlib/activehdl"/>
-    <Option Name="SimulatorInstallDirModelSim" Val=""/>
-    <Option Name="SimulatorInstallDirQuesta" Val=""/>
-    <Option Name="SimulatorInstallDirXcelium" Val=""/>
-    <Option Name="SimulatorInstallDirVCS" Val=""/>
-    <Option Name="SimulatorInstallDirRiviera" Val=""/>
-    <Option Name="SimulatorInstallDirActiveHdl" Val=""/>
-    <Option Name="SimulatorGccInstallDirModelSim" Val=""/>
-    <Option Name="SimulatorGccInstallDirQuesta" Val=""/>
-    <Option Name="SimulatorGccInstallDirXcelium" Val=""/>
-    <Option Name="SimulatorGccInstallDirVCS" Val=""/>
-    <Option Name="SimulatorGccInstallDirRiviera" Val=""/>
-    <Option Name="SimulatorGccInstallDirActiveHdl" Val=""/>
-    <Option Name="SimulatorVersionXsim" Val="2021.2"/>
-    <Option Name="SimulatorVersionModelSim" Val="2020.4"/>
-    <Option Name="SimulatorVersionQuesta" Val="2020.4"/>
-    <Option Name="SimulatorVersionXcelium" Val="20.09.006"/>
-    <Option Name="SimulatorVersionVCS" Val="R-2020.12"/>
-    <Option Name="SimulatorVersionRiviera" Val="2020.10"/>
-    <Option Name="SimulatorVersionActiveHdl" Val="12.0"/>
-    <Option Name="SimulatorGccVersionXsim" Val="6.2.0"/>
-    <Option Name="SimulatorGccVersionModelSim" Val="5.3.0"/>
-    <Option Name="SimulatorGccVersionQuesta" Val="5.3.0"/>
-    <Option Name="SimulatorGccVersionXcelium" Val="6.3"/>
-    <Option Name="SimulatorGccVersionVCS" Val="6.2.0"/>
-    <Option Name="SimulatorGccVersionRiviera" Val="6.2.0"/>
-    <Option Name="SimulatorGccVersionActiveHdl" Val="6.2.0"/>
     <Option Name="BoardPart" Val=""/>
     <Option Name="SourceMgmtMode" Val="DisplayOnly"/>
     <Option Name="ActiveSimSet" Val="sim_1"/>
     <Option Name="DefaultLib" Val="xil_defaultlib"/>
     <Option Name="ProjectType" Val="Default"/>
     <Option Name="IPOutputRepo" Val="$PCACHEDIR/ip"/>
-    <Option Name="IPDefaultOutputPath" Val="$PGENDIR/sources_1"/>
     <Option Name="IPCachePermission" Val="read"/>
     <Option Name="IPCachePermission" Val="write"/>
     <Option Name="EnableCoreContainer" Val="FALSE"/>
@@ -57,7 +31,7 @@
     <Option Name="IPStaticSourceDir" Val="$PIPUSERFILESDIR/ipstatic"/>
     <Option Name="EnableBDX" Val="FALSE"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="280"/>
+    <Option Name="WTXSimLaunchSim" Val="385"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
@@ -78,14 +52,13 @@
     <Option Name="XSimTraceLimit" Val="65536"/>
     <Option Name="MEMEnableMemoryMapGeneration" Val="TRUE"/>
     <Option Name="DcpsUptoDate" Val="TRUE"/>
-    <Option Name="ClassicSocBoot" Val="FALSE"/>
   </Configuration>
   <FileSets Version="1" Minor="31">
-    <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
+    <FileSet Name="sources_1" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sources_1/new/alu.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/alu.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/alu.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -94,7 +67,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/control_unit.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/control_unit.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/control_unit.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -103,7 +76,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/data_memory.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/data_memory.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/data_memory.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -112,7 +85,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/extend.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/extend.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/extend.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -121,7 +94,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/forwarding_unit.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/forwarding_unit.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/forwarding_unit.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -130,7 +103,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/instruction_memory.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/instruction_memory.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/instruction_memory.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -139,7 +112,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/mux.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/mux.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/mux.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -148,7 +121,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/npc.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/npc.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/npc.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -157,7 +130,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/pc.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/pc.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/pc.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -166,7 +139,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/reg_ex_mem.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/reg_ex_mem.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/reg_ex_mem.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -175,7 +148,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/reg_id_ex.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/reg_id_ex.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/reg_id_ex.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -184,7 +157,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/reg_if_id.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/reg_if_id.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/reg_if_id.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -193,7 +166,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/reg_mem_wb.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/reg_mem_wb.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/reg_mem_wb.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -202,7 +175,7 @@
       </File>
       <File Path="$PSRCDIR/sources_1/new/register_file.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sources_1/new/register_file.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sources_1/new/register_file.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -213,7 +186,6 @@
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
-          <Attr Name="IsVisible" Val="1"/>
         </FileInfo>
       </File>
       <File Path="$PSRCDIR/sources_1/new/hazard_unit.v">
@@ -237,25 +209,36 @@
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/component.xml">
-        <FileInfo SFType="IPXACT"/>
+      <File Path="$PSRCDIR/sources_1/new/direct_jump.v">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
       </File>
       <Config>
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="BIT_cpu"/>
       </Config>
     </FileSet>
-    <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
+    <FileSet Name="constrs_1" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
       <Filter Type="Constrs"/>
+      <File Path="$PSRCDIR/constrs_1/new/test_press_cons.xdc">
+        <FileInfo>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+        </FileInfo>
+      </File>
       <Config>
+        <Option Name="TargetConstrsFile" Val="$PSRCDIR/constrs_1/new/test_press_cons.xdc"/>
         <Option Name="ConstrsType" Val="XDC"/>
       </Config>
     </FileSet>
-    <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1" RelGenDir="$PGENDIR/sim_1">
+    <FileSet Name="sim_1" Type="SimulationSrcs" RelSrcDir="$PSRCDIR/sim_1">
       <Filter Type="Srcs"/>
       <File Path="$PSRCDIR/sim_1/new/testbench.v">
         <FileInfo>
-          <Attr Name="ImportPath" Val="D:/GitLocal/BIT-pipelined-cpu/copied-cpu/pipelined-zanpu.srcs/sim_1/new/testbench.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../copied-cpu/pipelined-zanpu.srcs/sim_1/new/testbench.v"/>
           <Attr Name="ImportTime" Val="1693103196"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -266,19 +249,14 @@
         <Option Name="DesignMode" Val="RTL"/>
         <Option Name="TopModule" Val="testbench"/>
         <Option Name="TopLib" Val="xil_defaultlib"/>
-        <Option Name="TopAutoSet" Val="TRUE"/>
         <Option Name="TransportPathDelay" Val="0"/>
         <Option Name="TransportIntDelay" Val="0"/>
         <Option Name="SelectedSimModel" Val="rtl"/>
-        <Option Name="PamDesignTestbench" Val=""/>
-        <Option Name="PamDutBypassFile" Val="xil_dut_bypass"/>
-        <Option Name="PamSignalDriverFile" Val="xil_bypass_driver"/>
-        <Option Name="PamPseudoTop" Val="pseudo_tb"/>
         <Option Name="SrcSet" Val="sources_1"/>
-        <Option Name="xsim.simulate.runtime" Val="200000ns"/>
+        <Option Name="xsim.simulate.runtime" Val="2000ns"/>
       </Config>
     </FileSet>
-    <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
+    <FileSet Name="utils_1" Type="Utils" RelSrcDir="$PSRCDIR/utils_1">
       <Filter Type="Utils"/>
       <Config>
         <Option Name="TopAutoSet" Val="TRUE"/>
@@ -303,12 +281,10 @@
       <Option Name="Description" Val="Active-HDL Simulator"/>
     </Simulator>
   </Simulators>
-  <Runs Version="1" Minor="15">
-    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a35tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true" IsChild="false" AutoIncrementalDir="$PSRCDIR/utils_1/imports/synth_1">
+  <Runs Version="1" Minor="11">
+    <Run Id="synth_1" Type="Ft3:Synth" SrcSet="sources_1" Part="xc7a35tcsg324-1" ConstrsSet="constrs_1" Description="Vivado Synthesis Defaults" AutoIncrementalCheckpoint="true" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017">
-          <Desc>Vivado Synthesis Defaults</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
       </Strategy>
       <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
@@ -316,11 +292,9 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
     </Run>
-    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcsg324-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" SynthRun="synth_1" IncludeInArchive="true" IsChild="false" GenFullBitstream="true" AutoIncrementalDir="$PSRCDIR/utils_1/imports/impl_1">
+    <Run Id="impl_1" Type="Ft2:EntireDesign" Part="xc7a35tcsg324-1" ConstrsSet="constrs_1" Description="Default settings for Implementation." AutoIncrementalCheckpoint="false" WriteIncrSynthDcp="false" State="current" Dir="$PRUNDIR/impl_1" SynthRun="synth_1" IncludeInArchive="true" GenFullBitstream="true">
       <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017">
-          <Desc>Default settings for Implementation.</Desc>
-        </StratHandle>
+        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
         <Step Id="opt_design"/>
         <Step Id="power_opt_design"/>
@@ -331,6 +305,7 @@
         <Step Id="post_route_phys_opt_design"/>
         <Step Id="write_bitstream"/>
       </Strategy>
+      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
       <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
       <RQSFiles/>
