@@ -30,9 +30,13 @@ module data_memory (
 );
 
   // Data Memory Storage
-  reg [31:0] memory[1023:0];
+  reg [31:0] memory[0:255];
   assign ReadMemData = MemRead ? memory[MemAddr] : 32'b0;
   integer i;
+  
+  initial begin
+$readmemh("C:/Users/ASUS/Desktop/wksp/cpu/vga_demo/testcode/data.mem", memory,0,255);
+end
 
   always @(negedge clk) begin
     if (rst) begin

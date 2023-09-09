@@ -27,15 +27,15 @@ module testbench ();
 
   initial begin
     // Load instructions
-    $readmemh("C:/Users/86159/Downloads/instr.mem", BIT_cpu.instruction_memory.memory);
+    $readmemh("C:/Users/ASUS/Desktop/wksp/cpu/BIT_pipelined_cpu/testcode/instr.mem", BIT_cpu.instruction_memory.memory);
 
     rst = 1;
     clk = 0;
 
     #30 rst = 0;
-    $readmemh("C:/Users/86159/Downloads/data.mem", BIT_cpu.data_memory.memory);
+    $readmemh("C:/Users/ASUS/Desktop/wksp/cpu/BIT_pipelined_cpu/testcode/data.mem", BIT_cpu.data_memory.memory);
 
-    #5000 $stop;
+    #50000 $stop;
   end
 
   always #20 clk = ~clk;

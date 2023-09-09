@@ -1,4 +1,4 @@
-`define RST_EN 1'b1
+`define RST_EN 1'b0
 
 /* --- GAME elements --- */
 

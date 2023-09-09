@@ -25,6 +25,10 @@ module instruction_memory (
 );
 // max_instructions: 1024
   reg [31:0] memory[1023:0];
+  
+//  initial begin
+//$readmemh("C:/Users/ASUS/Desktop/wksp/cpu/vga_demo/testcode/instr.mem", memory);
+//end
 
   assign instr = memory[instr_addr];
 

@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`include "params.vh"
 
 module top_vga (
     input wire       clk,
@@ -11,28 +12,35 @@ module top_vga (
    output wire[3:0] blue
 );
 
-BIT_cpu BIT_cpu(
+wire cpu_clk;
+change_clk changer(
     .clk(clk),
-    .rst(rst)
+    .rst(~rst),
+    .out_clk(cpu_clk)
+);
+
+
+BIT_cpu BIT_cpu(
+    .clk(cpu_clk),
+    .rst(~rst)
 );
 
 wire[1:0] control;
 reg[31:0] data_in;
-reg[9:0] addrs;
-assign control[0]=1;
+assign control=2'b01;
 
 wire clk_vga;
 clk_wiz_0 u_clk_wiz (
             // Clock out ports
             .clk_out1(clk_vga),     // output clk_out1
             // Status and control signals
-            .reset(rst ), // input reset
+            .reset(~rst ), // input reset
             // Clock in ports
             .clk_in1(clk));      // input clk_in1
 
-reg[9:0] addr;
+reg[7:0] addr;
 always @(posedge clk_vga) begin
-    if(rst)begin
+    if(rst==`RST_EN)begin
        addr <= 0;
     end
     else begin 
@@ -41,14 +49,9 @@ always @(posedge clk_vga) begin
     end
 end
 
-wire hs;
-wire vs;
-wire[3:0] red;
-wire[3:0] green;
-wire[3:0] blue;
 
 vga vga(
-    .clk_vga(clk_vga),
+    .clk(clk),
     .rst(rst),
 
     .control(control),

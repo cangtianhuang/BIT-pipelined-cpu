@@ -26,6 +26,7 @@ module BIT_cpu (
     output wire[3:0] addr
 );
 
+
   /*
  * Instantiate modules
  */

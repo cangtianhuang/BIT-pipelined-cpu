@@ -1,9 +1,10 @@
 // Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
-// Date        : Sat Sep  2 20:47:10 2023
+// Date        : Tue Sep  5 14:49:15 2023
 // Host        : LAPTOP-BBRVQOUP running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode synth_stub c:/BIT_pipelined_cpu.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v
+// Command     : write_verilog -force -mode synth_stub
+//               c:/Users/ASUS/Desktop/wksp/cpu/vga_demo/vga_demo.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_stub.v
 // Design      : clk_wiz_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a35tcsg324-1

@@ -43,16 +43,16 @@ wire[3:0] blue;
 
   initial begin
     // Load instructions
-    $readmemh("C:/Users/ASUS/Desktop/BIT_pipelined_cpu/testcode/instr.mem", top.BIT_cpu.instruction_memory.memory);
+//    $readmemh("C:/Users/ASUS/Desktop/BIT_pipelined_cpu/testcode/instr.mem", top.BIT_cpu.instruction_memory.memory);
 
-    rst = 1;
+    rst = 0;
     clk = 0;
 
-    #30 rst = 0;
-    $readmemh("C:/Users/ASUS/Desktop/BIT_pipelined_cpu/testcode/data.mem", top.BIT_cpu.data_memory.memory);
+    #37 rst = 1;
+//    $readmemh("C:/Users/ASUS/Desktop/BIT_pipelined_cpu/testcode/data.mem", top.BIT_cpu.data_memory.memory);
 
-    #5000000 $stop;
+    #50000000 $stop;
   end
 
-  always #20 clk = ~clk;
+  always #5 clk = ~clk;
 endmodule

@@ -1,9 +1,10 @@
 -- Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
--- Date        : Sat Sep  2 20:47:10 2023
+-- Date        : Tue Sep  5 14:49:15 2023
 -- Host        : LAPTOP-BBRVQOUP running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim c:/BIT_pipelined_cpu.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim
+--               c:/Users/ASUS/Desktop/wksp/cpu/vga_demo/vga_demo.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_sim_netlist.vhdl
 -- Design      : clk_wiz_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
