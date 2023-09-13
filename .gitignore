@@ -5,6 +5,13 @@
 /BIT_pipelined_cpu/BIT_pipelined_cpu.sim/
 /BIT_pipelined_cpu/BIT_pipelined_cpu.runs/
 
+/BIT_pipelined_cpu_test/BIT_pipelined_cpu.cache/
+/BIT_pipelined_cpu_test/.Xil/
+/BIT_pipelined_cpu_test/BIT_pipelined_cpu.hw/
+/BIT_pipelined_cpu_test/BIT_pipelined_cpu.ip_user_files/
+/BIT_pipelined_cpu_test/BIT_pipelined_cpu.sim/
+/BIT_pipelined_cpu_test/BIT_pipelined_cpu.runs/
+
 /vga_demo/vga_demo.cache/
 /vga_demo/.Xil/
 /vga_demo/vga_demo.hw/
